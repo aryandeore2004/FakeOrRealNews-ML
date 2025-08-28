@@ -10,14 +10,19 @@ import nltk
 nltk.download('stopwords')
 from nltk.corpus import stopwords
 
-# Flask App Setup
+# -------------------- Flask App Setup --------------------
 app = Flask(__name__)
 app.secret_key = 'your_secret_key'  # needed for flash messages
 
+# -------------------- Paths --------------------
+BASE_DIR = os.path.dirname(__file__)
+MODEL_FOLDER = os.path.join(BASE_DIR, "models")
+
 # -------------------- Load Model & Vectorizer --------------------
 try:
-    model = joblib.load("fake_news_model.pkl")
-    vectorizer = joblib.load("tfidf_vectorizer.pkl")
+    model = joblib.load(os.path.join(MODEL_FOLDER, "fake_news_model.pkl"))
+    vectorizer = joblib.load(os.path.join(MODEL_FOLDER, "tfidf_vectorizer.pkl"))
+    print("✅ Model and vectorizer loaded successfully.")
 except Exception as e:
     model = None
     vectorizer = None
