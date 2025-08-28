@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 # 📰 Fake News Detection using Flask & Machine Learning
 
 This is a web application that detects whether a given news article is **Real** or **Fake** using Natural Language Processing (NLP) and Machine Learning (Logistic Regression).
